@@ -37,7 +37,7 @@ h1{
     color: #e71d36;
     font-size: 7vw;
     margin: 0;
-    width: 50%;
+    width: 60%;
     flex-basis: content;
 }
 
@@ -93,7 +93,7 @@ button#saveButton:disabled, button{
     filter: none;
 }
 
-div#overlay{
+div#overlay_no{
     background-color: #e71d36;
     color: #fdfffc;
     position: absolute;
@@ -110,11 +110,25 @@ div#overlay{
     justify-content: center;
 }
 
-div#overlay.ok{
+div#overlay_ok{
     background-color: #2ec4b6;
+    color: #fdfffc;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Blackout, sans-serif;
+    font-size: 40vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-div#overlay.hidden{
+
+div#overlay_no.hidden, div#overlay_ok.hidden{
     display: none;
 }
 

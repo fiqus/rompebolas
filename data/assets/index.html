@@ -1,13 +1,16 @@
 <div class="main">
-    <h1>Que hiciste hoy?</h1>
+    <h1>{{.Title}}</h1>
     <textarea id="text" autofocus></textarea>
     <div class="buttons">
-        <button id="exitButton">Salir</button>
-        <button id="saveButton" disabled="disabled">Guardar</button>
+        <button id="exitButton">{{.Exit}}</button>
+        <button id="saveButton" disabled="disabled">{{.Save}}</button>
     </div>
 </div>
 
-<div id="overlay" class="hidden">
-    <span id="overlaySpan">NO</span>
+<div id="overlay_no" class="hidden">
+    <span id="overlaySpan">{{.No}}</span>
 </div>
 
+<div id="overlay_ok" class="hidden">
+    <span id="overlaySpan">{{.Ok}}</span>
+</div>

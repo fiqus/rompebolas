@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-func GetAssetStr(name string) string {
+func GetAssetBytes(name string) []byte {
 	a, err := Assets.Open(name)
 	if err != nil {
 		log.Fatalf("can't open asset %s, err: %v", name, err)
@@ -15,5 +15,9 @@ func GetAssetStr(name string) string {
 	if err != nil {
 		log.Fatalf("can't read asset %s, err: %v", name, err)
 	}
-	return buf.String()
+	return buf.Bytes()
+}
+
+func GetAssetStr(name string) string {
+	return string(GetAssetBytes(name))
 }
