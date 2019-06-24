@@ -93,7 +93,7 @@ button#saveButton:disabled, button{
     filter: none;
 }
 
-div#overlay_no{
+div#overlay_no, div#overlay_ok, div#overlay_shrug{
     background-color: #e71d36;
     color: #fdfffc;
     position: absolute;
@@ -112,23 +112,15 @@ div#overlay_no{
 
 div#overlay_ok{
     background-color: #2ec4b6;
-    color: #fdfffc;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    font-family: Blackout, sans-serif;
-    font-size: 40vw;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+}
+
+div#overlay_shrug{
+    background-color: #ff9f1c;
+    font-size: 20vw;
 }
 
 
-div#overlay_no.hidden, div#overlay_ok.hidden{
+div#overlay_no.hidden, div#overlay_ok.hidden, div#overlay_shrug.hidden{
     display: none;
 }
 

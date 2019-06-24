@@ -1,58 +1,67 @@
-(function(){
+(function () {
     let exitButton = document.getElementById("exitButton");
     let saveButton = document.getElementById("saveButton");
     let textArea = document.getElementById("text");
     let overlayNo = document.getElementById("overlay_no");
     let overlayOk = document.getElementById("overlay_ok");
+    let overlayShrug = document.getElementById("overlay_shrug");
     let overlayCount = 0;
 
-    function invoke(type, value){
+    function invoke(type, value) {
         window.external.invoke(JSON.stringify({type, value}))
     }
 
-    function showOverlayNo(){
-        overlayNo.className="";
-        window.setTimeout(function(){overlayNo.className="hidden"}, 2000);
+    function showOverlayNo() {
+        overlayNo.className = "";
+        window.setTimeout(function () {
+            overlayNo.className = "hidden"
+        }, 2000);
     }
 
-    function exit(){
-        overlayOk.className="";
-        window.setTimeout(function(){invoke("exit");}, 500);
+    function exit(shrug = false) {
+        if (shrug) {
+            overlayShrug.className = ""
+        } else {
+            overlayOk.className = "";
+        }
+        window.setTimeout(function () {
+            invoke("exit");
+        }, 500);
     }
 
-    exitButton.onclick = function(){
-        if (overlayCount < 2){
+    exitButton.onclick = function () {
+        if (overlayCount < 2) {
             showOverlayNo();
             overlayCount++;
-        }else{
-            exit()
+        } else {
+            exit(true)
         }
     };
 
-    saveButton.onclick = function(){
+    saveButton.onclick = function () {
         invoke("submit", textArea.value.trim());
         exit();
     };
 
     textArea.oninput = function () {
-        if(textArea.value.trim()){
+        if (textArea.value.trim()) {
             saveButton.removeAttribute("disabled");
-        }else{
+        } else {
             saveButton.setAttribute("disabled", "disabled")
         }
     };
 
     textArea.onkeypress = function (evt) {
         if (evt.keyCode === 13 && evt.shiftKey) {
-            if(textArea.value.trim()){
+            if (textArea.value.trim()) {
                 invoke("submit", textArea.value.trim());
                 exit();
-            }else{
-                if (overlayCount < 2){
+            } else {
+                if (overlayCount < 2) {
                     showOverlayNo();
                     overlayCount++;
-                }else{
-                    exit()
+                } else {
+                    exit(true)
                 }
             }
             evt.preventDefault();

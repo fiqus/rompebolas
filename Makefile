@@ -13,7 +13,7 @@ build:
 	go build -ldflags '-X main.version=1.0' ./cmd/rompebolas/
 
 run:
-	go run ./cmd/rompebolas/
+	go run -tags dev ./cmd/rompebolas/
 
 clean:
 	go clean
