@@ -3,7 +3,7 @@ all: build
 setup:
 	go get -u github.com/shurcooL/vfsgen
 	go get -u github.com/nicksnyder/go-i18n/v2/goi18n
-	go get ./cmd/rompebolas
+	go get -tags dev ./cmd/rompebolas
 
 fmt:
 	go fmt ./...
