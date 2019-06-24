@@ -1,26 +1,38 @@
 # Rompebolas
 
-a simple tool to remind developers to log their work at the end of the day
+¯\\_(ツ)_/¯ A simple tool to remind developers to log their work at the end of the day.
 
-when run, it opens in full screen and prompt for a log message
+When run, it opens in full screen and prompt for a log message.
 
-the message is saved, with the date it was generated on, in a filed called ~/rompe.txt
+The message is saved in a filed called `~/rompe.txt` with the date it was generated on.
+
+It supports multilanguage using `goi18n`.
+
+![Main app ES](docs/img/screen_es.png)
+![Main app ES](docs/img/screen_en.png)
+
+and be carefull when exit...
+
+![Main app ES](docs/img/rompebolas_exit.png)
+
+## Pre-requisites
+ - Golang
 
 ## Recommended install instructions
 
-1.  get dependencies
+1. Get dependencies
         
         make setup
         
-2. build the project
+2. Build the project
 
         make build
         
-3. copy the executable somewhere you like. eg:
+3. Copy the executable somewhere you like. eg:
 
         cp rompebolas ~/bin/
         
-4. create a crontab entry to run it whenever you want. eg:
+4. Create a crontab entry to run it whenever you want. eg:
 
         crontab -e
         
@@ -32,4 +44,8 @@ the message is saved, with the date it was generated on, in a filed called ~/rom
         
         50 17 * * 1-5 DISPLAY=:0.0 /home/mlambir/bin/rompebolas >/dev/null 2>&1
 
-this will run the program once a day every weekday at 5:50 pm
+This will run the program once a day every weekday at 5:50 pm
+
+5. Or just run it:
+
+        make run
